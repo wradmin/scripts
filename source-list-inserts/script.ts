@@ -16,6 +16,12 @@ const allowedFieldNames = [
   "link_type",
   "parent_link",
   "feed_group_id",
+  "data_type",
+  "rules",
+  "public_link",
+  "country",
+  "state",
+  "city",
 ]
 
 form?.addEventListener("input", (evt) => {

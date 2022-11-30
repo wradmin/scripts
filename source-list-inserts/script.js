@@ -15,17 +15,17 @@ const allowedFieldNames = [
     "link_type",
     "parent_link",
     "feed_group_id",
+    "data_type",
+    "rules",
+    "public_link",
+    "country",
+    "state",
+    "city",
 ];
-form?.addEventListener("input", (evt) => {
-    const inputFields = inputElem?.value
-        .split("\t")
-        .map((name, i) => [name, alphabet[i]])
-        .filter(([name]) => allowedFieldNames.includes(name));
-    const columnNames = inputFields?.map(([column]) => column).join(",");
-    const columnLetters = inputFields
-        ?.map(([_, letter]) => letter)
-        .map((letter) => `'"&${letter}${rowNumberElem?.value}&"'`)
-        .join(",");
+form === null || form === void 0 ? void 0 : form.addEventListener("input", (evt) => {
+    const inputFields = inputElem === null || inputElem === void 0 ? void 0 : inputElem.value.split("\t").map((name, i) => [name, alphabet[i]]).filter(([name]) => allowedFieldNames.includes(name));
+    const columnNames = inputFields === null || inputFields === void 0 ? void 0 : inputFields.map(([column]) => column).join(",");
+    const columnLetters = inputFields === null || inputFields === void 0 ? void 0 : inputFields.map(([_, letter]) => letter).map((letter) => `'"&${letter}${rowNumberElem === null || rowNumberElem === void 0 ? void 0 : rowNumberElem.value}&"'`).join(",");
     const result = `="INSERT INTO sources_work.source_list (${columnNames}) VALUES (${columnLetters})"`;
     resultElem.value = result;
 });
@@ -33,4 +33,4 @@ const inputEvent = new Event('input', {
     bubbles: true,
     cancelable: true,
 });
-form?.dispatchEvent(inputEvent);
+form === null || form === void 0 ? void 0 : form.dispatchEvent(inputEvent);
