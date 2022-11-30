@@ -18,7 +18,6 @@ const allowedFieldNames = [
     "data_type",
     "rules",
     "public_link",
-    "country",
     "state",
     "city",
 ];
